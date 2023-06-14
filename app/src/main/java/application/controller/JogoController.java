@@ -51,8 +51,4 @@ public class JogoController {
 
         return "redirect:/jogo/list";
     }
-
-    public String update(@RequestParam("id") int id, @RequestParam("titulo") String titulo, @RequestParam("anoDeLancamento") int anoDeLancamento) {
-        Optional<Jogo> jogo = jogoRepo.findById(id);
-    }
 }
