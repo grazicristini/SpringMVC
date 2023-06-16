@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <h1>Novo Jogo</h1>
-        <form action="/livro/insert" method="post">
+        <form action="/jogo/insert" method="post">
             <div class="form-group">
                 <label for="titulo">Título</label>
                 <input type="text" name="titulo" class="form-control" />

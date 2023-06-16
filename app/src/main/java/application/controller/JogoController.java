@@ -27,7 +27,7 @@ public class JogoController {
 
     @RequestMapping("/insert")
     public String insert() {
-        return "/livro/insert";
+        return "/jogo/insert";
     }
 
     @RequestMapping(value = "/insert", method = RequestMethod.POST)
@@ -48,6 +48,38 @@ public class JogoController {
             model.addAttribute("jogo", jogo.get());
             return "/jogo/update";
         }
+
+        return "redirect:/jogo/list";
+    }
+
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    public String update(@RequestParam("id") int id, @RequestParam("titulo") String titulo, @RequestParam("anoDeLancamento") int anoDeLancamento) {
+        Optional<Jogo> jogo = jogoRepo.findById(id);
+
+        if(jogo.isPresent()) {
+            jogo.get().setTitulo(titulo);
+            jogo.get().setAnoDeLancamento(anoDeLancamento);
+            jogoRepo.save(jogo.get());
+        }
+
+        return "redirect:/jogo/list";
+    }
+
+    @RequestMapping("/delete")
+    public String delete(Model model, @RequestParam("id") int id) {
+        Optional<Jogo> jogo = jogoRepo.findById(id);
+
+        if (jogo.isPresent()){
+            model.addAttribute("jogo", jogo.get());
+            return "jogo/delete";
+        }
+
+        return "redirect:/jogo/list";
+    }
+
+    @RequestMapping(value =  "/delete", method = RequestMethod.POST)
+    public String delete(@RequestParam("id") int id) {
+        jogoRepo.deleteById(id);
 
         return "redirect:/jogo/list";
     }
