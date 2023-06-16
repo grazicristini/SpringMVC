@@ -10,7 +10,7 @@
 <body>
     <div class="container">
     <h1>Jogos</h1>
-        <a href="/livro/insert" class="btn btn-primary">Novo Jogo</a>
+        <a href="/jogo/insert" class="btn btn-primary">Novo Jogo</a>
         <table class="table">
             <tr>
                 <th>Id</th>
@@ -24,8 +24,8 @@
                     <td>${item.titulo}</td>
                     <td>${item.anoDeLancamento}</td>
                     <td>
-                        <a href="/livro/update?id=${item.id}" class="btn btn-warning">Editar</a>
-                        <a href="/livro/delete?id=${item.id}" class="btn btn-danger">Editar</a>
+                        <a href="/jogo/update?id=${item.id}" class="btn btn-warning">Editar</a>
+                        <a href="/jogo/delete?id=${item.id}" class="btn btn-danger">Editar</a>
                     </td>                
                 </tr>
             </c:forEach>

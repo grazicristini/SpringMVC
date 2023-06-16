@@ -7,6 +7,9 @@
     </head>
     <body>
         <h1>Olá Spring!!!</h1>
+        <a href="jogo/list">
+            Lista de Jogos
+        </a>
     </body>
 </html>
 
